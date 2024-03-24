@@ -1,0 +1,99 @@
+swagger: '2.0'
+info:
+  description: This is an abstraction for entity search service exposed on Elastic Search platform
+  version: 1.0.0
+  title: Entity Search Service
+host: localhost
+basePath: /v1
+tags:
+  - name: search
+    description: This is entity search searvice
+schemes:
+  - https
+  - http
+paths:
+  /search/{entity}:
+    post:
+      tags:
+        - search
+      summary: Search entity using elastic search service
+      description: Search entity using elastic search service
+      operationId: searchEnity
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: entity
+          required: true
+          type: string
+        - in: body
+          name: searchCriteria
+          description: search Criteria will contain all filters and other criteria to search entity
+          required: true
+          schema:
+            $ref: '#/definitions/Criteria'
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Entity not found
+        '405':
+          description: Validation exception
+definitions:
+  Criteria:
+    type: object
+    properties:
+      filters:
+        type: array
+        items:
+          "$ref": "#/definitions/Filter"
+      orders:
+        type: array
+        items:
+          "$ref": "#/definitions/Order"
+      size:
+        type: integer
+        default: 20
+      offset:
+        type: integer
+        default: 0
+    required:
+      - filters
+      - orders
+      - size
+      - offset
+  Order:
+    type: object
+    properties:
+      field:
+        type: string
+      asc:
+        type: boolean
+    required:
+      - field
+      - asc
+  Filter:
+    type: object
+    properties:
+      field:
+        type: string
+      operator:
+        type: string
+        enum:
+          - eq
+          - ne
+          - any
+          - gt
+          - gte
+          - lt
+          - lte
+          - between
+          - not_between
+      value:
+        type: string
+    required:
+      - field
+      - operator
+      - value

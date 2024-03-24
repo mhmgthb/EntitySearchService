@@ -1,0 +1,8 @@
+server:
+    port: 9001
+spring:
+  application:
+    name: CACHE-SEARCH-SERVICE
+api:
+  elastic-search:
+    baseUrl:  192.168.80.41:9200
