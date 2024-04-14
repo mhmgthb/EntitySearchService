@@ -52,10 +52,10 @@ public class EntitySearchServiceImpl implements  EntitySearchService {
                             throw new ServiceException("Readtimeout Excetion occurred  ",originalException, ErrorCodes.UNKNOWN);
                         } else if (originalException instanceof DataAccessResourceFailureException) {
                             //log.info("----------------<<<<<<<DataAccessResourceFailureExceptionk>>>>>> -------------------");
-                            throw new ServiceException("DataAccessResourceFailureException Excetion occurred",originalException, ErrorCodes.UNKNOWN);
+                            throw new ServiceException("Elasticsearch connection error.",originalException, ErrorCodes.UNKNOWN);
                         }else if (originalException instanceof UncategorizedElasticsearchException) {
                             //log.info("----------------<<<<<<<UncategorizedElasticsearchException>>>>>> -------------------");
-                            throw new ServiceException("Elastic search throws inknown searching exception,",originalException, ErrorCodes.BUSINESS_VALIDATION);
+                            throw new ServiceException("Elastic search throws inknown search exception,",originalException, ErrorCodes.BUSINESS_VALIDATION);
                         }
                         return originalException;
                     });//.log();//.subscribe(employeesList::add);

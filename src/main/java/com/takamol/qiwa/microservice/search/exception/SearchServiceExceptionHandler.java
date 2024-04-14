@@ -27,10 +27,13 @@ public class SearchServiceExceptionHandler  {
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity handleProductNotFoundException(ServiceException ex) {
         log.info("---------------------ServiceException------------------------------");
-        log.error(ex.getMessage(),ex);
-        if(ex.getErrorCode() == ErrorCodes.BUSINESS_VALIDATION);{
+        //log.error(ex.getMessage(),ex);
+        if(ex.getErrorCode() == ErrorCodes.BUSINESS_VALIDATION){
             return generateResponse(ServiceMessage.BUSINESS_VALIDATION_ELASTICSEARCH, HttpStatus.CONFLICT);
+        }else if(ex.getErrorCode() == ErrorCodes.UNKNOWN){
+            return generateResponse(ServiceMessage.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        return generateResponse(ServiceMessage.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
         //return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(generateResponse(ex.getMessage(),HttpStatus.METHOD_NOT_ALLOWED));
         //log.error(ex.getMessage(),ex);
        // return generateResponse(ServiceMessage.BUSINESS_VALIDATION_ELASTICSEARCH, HttpStatus.CONFLICT);
@@ -82,7 +85,7 @@ public class SearchServiceExceptionHandler  {
         // log.warn("Unknown exception type: " + ex.getClass().getName());
 
             HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-            return generateResponse("Service is currently unavailable, please try again later.", HttpStatus.INTERNAL_SERVER_ERROR);
+            return generateResponse(ServiceMessage.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
    // @ResponseStatus(HttpStatus.BAD_REQUEST)

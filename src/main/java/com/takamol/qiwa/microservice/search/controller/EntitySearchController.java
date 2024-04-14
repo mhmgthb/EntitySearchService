@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 //import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,8 @@ import java.util.List;
 public class EntitySearchController implements SearchApi {
         @Autowired
         private EntitySearchDelegatorService entitySearchDelegatorService;
-
+        @Autowired
+        Environment env;
        /* @PostMapping(value = "/{entityName}")
         public ResponseEntity<List<JSONObject>> searchEntity(@PathVariable String entity, @RequestBody @Valid SearchCriteria searchCriteria) {
                 log.info("in searchEntity method of EntitySearchController");
@@ -32,6 +34,7 @@ public class EntitySearchController implements SearchApi {
         @PostMapping(value = "/{entityName}")
         public ResponseEntity<Mono<List<JSONObject>>> searchEnity(@PathVariable String entityName, @Valid @RequestBody  SearchRequest searchRequest) {
                 log.info("---.........----Request received in EntitySearchController................");
+                log.info(env.getActiveProfiles()[0]);
                 //throw new EntitySearchException("DataAccessResourceFailureException Excetion occurred", Error.SERVER_ERROR);
                 return new ResponseEntity<>(entitySearchDelegatorService.searchEntity(entityName,searchRequest), HttpStatus.CREATED);
         }

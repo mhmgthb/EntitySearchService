@@ -1,0 +1,11 @@
+2024-04-14 16:50:16,095 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-04-14 16:50:16,167 INFO o.s.b.StartupInfoLogger [main] Starting EntitySearchServiceApplication using Java 21.0.1 with PID 3248 (D:\web-services-projects\spring-boot-microservices\cache-search-service\target\classes started by Mohsin Mahmood in D:\web-services-projects\spring-boot-microservices\cache-search-service)
+2024-04-14 16:50:16,170 INFO o.s.b.SpringApplication [main] The following 1 profile is active: "@spring.profiles.active@"
+2024-04-14 16:50:17,309 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-14 16:50:17,343 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 27 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-14 16:50:17,355 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-14 16:50:17,360 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 4 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-14 16:50:17,625 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=4ca189f1-0617-3eb6-aa6b-5b5c075e5e3b
+2024-04-14 16:50:18,206 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-14 16:50:19,627 INFO o.s.b.w.e.n.NettyWebServer [main] Netty started on port 9001
+2024-04-14 16:50:19,648 INFO o.s.b.StartupInfoLogger [main] Started EntitySearchServiceApplication in 4.415 seconds (process running for 5.657)

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
+    <Properties>
+        <property name="LOG_FILE">${bundle:application:log.file.path}</property>
+    </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
@@ -7,8 +10,8 @@
         </Console>
 
         <RollingFile name="RollingFile"
-                     fileName="./logs/spring-boot-logger-log4j2.log"
-                     filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">
+                     fileName="${LOG_FILE}"
+                     filePattern="./logs/$${date:yyyy-MM}/entity-service-%d{-dd-MMMM-yyyy}-%i.log.gz">
             <PatternLayout>
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
@@ -30,7 +33,7 @@
             <AppenderRef ref="RollingFile" />
         </Root>
 
-        <!-- LOG "com.baeldung*" at TRACE level -->
+        <!-- LOG  at TRACE level -->
         <Logger name="com.takamol.search" level="trace"></Logger>
     </Loggers>
 
