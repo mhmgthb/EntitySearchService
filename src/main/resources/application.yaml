@@ -1,8 +1,6 @@
 server:
-    port: 9001
-logging:
-  level:
-    org.springframework: INFO
+  port: ${sp:9001}
+
 spring:
   application:
     name: ENTITY-SEARCH-SERVICE
@@ -18,7 +16,7 @@ environment: development
 enabled: false
 api:
   elastic-search:
-    baseUrl:  192.168.80.41:9200
+    baseUrl:  ${baseUrl:192.168.80.41:9200}
 elasticsearch:
   username: ${esid:elastic}
   pwd: ${espwd:-r_05kc5qqWqNHZcDWlj}
@@ -33,11 +31,11 @@ spring:
     activate:
       on-profile: prod
 name: prod-yaml
-environment: development
+environment: production
 enabled: false
 api:
   elastic-search:
-    baseUrl:  192.168.80.41:9200
+    baseUrl:  ${baseUrl:192.168.80.41:9200}
 elasticsearch:
   username: ${esid:elastic}
   pwd: ${espwd:-r_05kc5qqWqNHZcDWlj}

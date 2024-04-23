@@ -1,0 +1,200 @@
+openapi: 3.0.0
+info:
+  title: Entity Search Service
+  description: This is an abstraction for entity search service exposed on Elastic
+    Search platform
+  version: 1.0.0
+
+tags:
+  - name: search
+    description: This is entity search searvice
+paths:
+  /search/{entityName}:
+    post:
+      tags:
+        - search
+      summary: Search entity using elastic search service
+      description: Search entity using search service
+      operationId: searchEnity
+      parameters:
+        - name: entityName
+          in: path
+          required: true
+          schema:
+            "$ref": "#/components/schemas/EntityName"
+      requestBody:
+        description: search Criteria will contain all filters and other criteria to search entity
+        content: { application/json: {
+            schema: {
+              $ref: '#/components/schemas/SearchRequest'
+          }
+        }
+      }
+        required: true
+      responses:
+        "200":
+          description: Success
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Response'
+            }
+          }
+          }
+        "400":
+          description: Bad request
+          content: { application/json: {
+                            schema: {
+                              "$ref": '#/components/schemas/Error'
+                            }
+                       }
+                   }
+        "404":
+          description: Entity not found
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "409":
+          description: Validation error
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "500":
+          description: Internal server error
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "501":
+          description: The request method is not supported (Not Implemented)
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "502":
+          description: Service unavailable due to invalid backend response(Bad Gateway)
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "503":
+          description: Service unavailable (Under maintenance or overloaded)
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+    x-codegen-request-body-name: searchCriteria
+components:
+  schemas:
+    EntityName:
+      enum:
+        - Contracts
+        - Employees
+        - Profiles
+        - Companies
+        - Establishments
+        - Laborers
+        - Trainings
+        - certificates
+        - Qualifications
+        - Notifications
+        - Occupations
+        -
+      type: string
+    SearchRequest:
+      required:
+        - filters
+        - offset
+        - orders
+        - size
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            type: string
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        size:
+          type: integer
+          minimum: 1
+          maximum: 50
+        offset:
+          type: integer
+          minimum: 0
+    Order:
+      required:
+        - asc
+        - field
+      type: object
+      properties:
+        field:
+          type: string
+          nullable: false
+        asc:
+          type: boolean
+    Filter:
+      required:
+        - field
+        - operator
+        - value
+      type: object
+      properties:
+        field:
+          type: string
+          nullable: false
+        operator:
+          type: string
+          enum:
+            - eq
+            - ne
+            - any
+            - gt
+            - gte
+            - lt
+            - lte
+            - between
+            - not_between
+        value:
+          type: string
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Response:
+      required:
+        - totalRecords
+        - records
+      properties:
+        totalRecords:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            type: JSONObject

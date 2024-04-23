@@ -1,43 +1,859 @@
-2024-04-14 19:57:47,811 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
-2024-04-14 19:57:48,748 INFO o.s.c.c.c.ConfigServicePropertySourceLocator [main] Fetching config from server at : http://localhost:8888
-2024-04-14 19:57:48,859 INFO o.s.c.c.c.ConfigServicePropertySourceLocator [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
-2024-04-14 19:57:48,859 WARN o.s.c.c.c.ConfigServicePropertySourceLocator [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
-2024-04-14 19:57:48,869 INFO o.s.b.SpringApplication [main] The following 1 profile is active: "dev"
-2024-04-14 19:57:49,538 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2024-04-14 19:57:49,561 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 0 Elasticsearch repository interfaces.
-2024-04-14 19:57:49,568 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2024-04-14 19:57:49,573 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 4 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2024-04-14 19:57:49,827 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
-2024-04-14 19:57:50,328 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
-2024-04-14 19:57:51,817 INFO o.s.b.w.e.n.NettyWebServer [main] Netty started on port 9001
-2024-04-14 19:57:51,838 INFO o.s.b.StartupInfoLogger [main] Started EntitySearchServiceApplication in 4.877 seconds (process running for 6.086)
-2024-04-14 20:42:54,923 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
-2024-04-14 20:42:54,923 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
-2024-04-14 20:42:54,958 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
-2024-04-14 20:42:56,364 TRACE o.e.c.RequestLogger [I/O dispatcher 1] curl -iX POST 'https://192.168.80.41:9200/qiwa-contracts-v2/_search?search_type=query_then_fetch&typed_keys=true' -d '{"from":0,"post_filter":{"bool":{"must":[{"term":{"LaborerIdNo":{"value":"1043215860"}}},{"range":{"LastModifiedDate":{"lte":"2023-12-12T01:05:01.830Z"}}}]}},"query":{"match_all":{}},"size":10,"sort":[],"track_scores":false,"version":true}'
-# HTTP/1.1 200 OK
-# X-elastic-product: Elasticsearch
-# content-type: application/vnd.elasticsearch+json;compatible-with=8
-# content-length: 11255
-#
-# {"took":412,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":5,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"qiwa-contracts-v2","_id":"964405","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"-1.5967e+008","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":6,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T12:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"نقل كفالة","Code":3,"NameEn":"Change Sponsor"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:30.963364624Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":964405,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T12:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-08-14T09:43:36.983Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"","LaborerName":"Test Test","IsExternal":false,"LastModifiedDate":"2023-12-12T01:05:01.830Z","Status":{"NameAr":"ساري","Code":15,"NameEn":"Active"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_reject_reason","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T12:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":"2023-08-14T00:00:00.000Z","RejectionDescription":"","JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T12:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"","Code":null,"NameEn":""},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":18902,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}},{"_index":"qiwa-contracts-v2","_id":"965505","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"-1.5967e+008","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":1,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T12:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"نقل كفالة","Code":3,"NameEn":"Change Sponsor"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:34.525467555Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":965505,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T12:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-09-09T14:44:52.663Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-12T01:05:01.830Z","Status":{"NameAr":"ساري","Code":15,"NameEn":"Active"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_reject_reason","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T12:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":"2023-09-10T13:56:18.823Z","RejectionDescription":null,"JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T12:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"","Code":null,"NameEn":""},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":59670,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}},{"_index":"qiwa-contracts-v2","_id":"980241","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"-1.5967e+008","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":1,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T12:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"نقل كفالة","Code":3,"NameEn":"Change Sponsor"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:41:19.852147432Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":980241,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T12:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-10-01T09:24:16.060Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-12T01:05:01.830Z","Status":{"NameAr":"ساري","Code":15,"NameEn":"Active"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_reject_reason","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T12:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":null,"RejectionDescription":null,"JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T12:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"","Code":null,"NameEn":""},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":59600,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}},{"_index":"qiwa-contracts-v2","_id":"964597","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"-1.5967e+008","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":1,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T12:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"نقل كفالة","Code":3,"NameEn":"Change Sponsor"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:31.235079068Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":964597,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T12:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-08-27T12:46:00.870Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-12T01:05:01.830Z","Status":{"NameAr":"ساري","Code":15,"NameEn":"Active"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_reject_reason","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T12:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":null,"RejectionDescription":null,"JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T12:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"","Code":null,"NameEn":""},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":59670,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}},{"_index":"qiwa-contracts-v2","_id":"964598","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"-1.5967e+008","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":1,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T12:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"نقل كفالة","Code":3,"NameEn":"Change Sponsor"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:31.235193349Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":964598,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T12:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-08-27T12:48:13.283Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-12T01:05:01.830Z","Status":{"NameAr":"ساري","Code":15,"NameEn":"Active"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_reject_reason","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T12:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":null,"RejectionDescription":null,"JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T12:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"","Code":null,"NameEn":""},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":59680,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}}]}}
-2024-04-14 20:43:57,933 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
-2024-04-14 20:43:57,934 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
-2024-04-14 20:43:57,934 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
-2024-04-14 20:43:58,074 TRACE o.e.c.RequestLogger [I/O dispatcher 1] curl -iX POST 'https://192.168.80.41:9200/qiwa-contracts-v2/_search?search_type=query_then_fetch&typed_keys=true' -d '{"from":0,"post_filter":{"bool":{"must":[{"term":{"LaborerIdNo":{"value":"1043215860"}}},{"range":{"LastModifiedDate":{"gt":"2023-12-12T01:05:01.830Z"}}}]}},"query":{"match_all":{}},"size":10,"sort":[],"track_scores":false,"version":true}'
-# HTTP/1.1 200 OK
-# X-elastic-product: Elasticsearch
-# content-type: application/vnd.elasticsearch+json;compatible-with=8
-# content-length: 4705
-#
-# {"took":5,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"qiwa-contracts-v2","_id":"964404","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"-1.5967e+008","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":6,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T12:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"نقل كفالة","Code":3,"NameEn":"Change Sponsor"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:30.963271448Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":964404,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T12:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-08-14T09:40:50.590Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-25T12:03:50.243Z","Status":{"NameAr":"ملغى من قبل المنشأة","Code":9,"NameEn":"Canceled by establishment"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T12:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":"2023-08-14T00:00:00.000Z","RejectionDescription":"flask automation","JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T12:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"أخرى","Code":7,"NameEn":"Other"},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":18942,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}},{"_index":"qiwa-contracts-v2","_id":"965216","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"1-59670-450","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":1,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T00:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"عمالة منزلية","Code":4,"NameEn":"Home workers"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:32.003619455Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":965216,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T00:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-09-06T11:28:48.983Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"1011011318","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-13T16:39:06.627Z","Status":{"NameAr":"ملغى من قبل المنشأة","Code":9,"NameEn":"Canceled by establishment"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_reject_reason","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T00:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":null,"RejectionDescription":null,"JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T00:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"","Code":null,"NameEn":""},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":59333,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}}]}}
-2024-04-14 20:44:07,718 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
-2024-04-14 20:44:07,718 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
-2024-04-14 20:44:07,719 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
-2024-04-14 20:44:07,869 TRACE o.e.c.RequestLogger [I/O dispatcher 1] curl -iX POST 'https://192.168.80.41:9200/qiwa-contracts-v2/_search?search_type=query_then_fetch&typed_keys=true' -d '{"from":0,"post_filter":{"bool":{"must":[{"term":{"LaborerIdNo":{"value":"1043215860"}}},{"range":{"LastModifiedDate":{"gt":"2023-12-12T01:05:01.830Z"}}}]}},"query":{"match_all":{}},"size":10,"sort":[],"track_scores":false,"version":true}'
-# HTTP/1.1 200 OK
-# X-elastic-product: Elasticsearch
-# content-type: application/vnd.elasticsearch+json;compatible-with=8
-# content-length: 4706
-#
-# {"took":11,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"qiwa-contracts-v2","_id":"964404","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"-1.5967e+008","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":6,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T12:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"نقل كفالة","Code":3,"NameEn":"Change Sponsor"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:30.963271448Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":964404,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T12:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-08-14T09:40:50.590Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-25T12:03:50.243Z","Status":{"NameAr":"ملغى من قبل المنشأة","Code":9,"NameEn":"Canceled by establishment"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T12:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":"2023-08-14T00:00:00.000Z","RejectionDescription":"flask automation","JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T12:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"أخرى","Code":7,"NameEn":"Other"},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":18942,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}},{"_index":"qiwa-contracts-v2","_id":"965216","_version":1,"_score":1.0,"_source":{"NoticePeriod":60,"EntityId":"1-59670-450","ModificationReason":{"NameAr":"","Code":null,"NameEn":""},"InactiveReason":{"InactiveReasonEn":"","Code":null,"InactiveReasonAr":""},"WorkLocationNameEn":"Abba Al-Salabekh","Salary":"WOHymK9Jpy/8H8skBmqxuQ==","LaborOfficeId":1,"LaborerId":"1043215860","DateTypeId":2,"OriginalExpiryDate":{"Greogrian":"2022-12-11T00:00:00.000Z","Hijri":14440517},"RelatedTo":{"NameAr":"عمالة منزلية","Code":4,"NameEn":"Home workers"},"IsGosiMigrated":0,"LaborerIdNo":1043215860,"@timestamp":"2024-01-01T13:40:32.003619455Z","OccupationNameEn":"Hospital Cleaner","EmployerAppRejDate":null,"UnifiedNumberId":121078,"ContractId":965216,"EstablishmentId":153709,"CurrentExpiryDate":{"Greogrian":"2024-12-11T00:00:00.000Z","Hijri":14460610},"WorkLocationNameAr":"أبا الصلابيخ","OccupationNameAr":"عامل تنظيف مستشفيات","CreationDate":"2023-09-06T11:28:48.983Z","EstablishmentNameAr":"شـركــة زهــران للصيـانـه والتشــغيل","ContractPeriod":12,"CRNumber":"1011011318","LaborerName":"Abdullah Ibrahim","IsExternal":false,"LastModifiedDate":"2023-12-13T16:39:06.627Z","Status":{"NameAr":"ملغى من قبل المنشأة","Code":9,"NameEn":"Canceled by establishment"},"ContractType":{"NameAr":"عقد بدوام كامل","Code":1,"NameEn":"Full time contract"},"WorkLocationId":1117,"RequesterName":"عبدالله القرعاوي","EstablishmentNameEn":"شـركــة زهــران للصيـانـه والتشــغيل","tags":["_jdbcstreamingdefaultsused","jdbc_look_failure","not_found_reject_reason","not_found_update_reason","not_found_modification_reason","not_found_inactive_reason"],"IsRegisteredwithGosi":false,"TerminationReason":{"ReasonEn":"","Code":null,"ReasonAr":""},"CurrentStartDate":{"Greogrian":"2023-12-12T00:00:00.000Z","Hijri":14450528},"LaborerAppRejDate":null,"RejectionDescription":null,"JobTitleEn":"test","OriginalStartDate":{"Greogrian":"2021-12-12T00:00:00.000Z","Hijri":14430508},"RejectionReason":{"NameAr":"","Code":null,"NameEn":""},"OccupationID":911204,"JobTitleAr":",,,,,,","SequenceNumber":59333,"UpdateReason":{"NameAr":"","Code":null,"NameEn":""}}}]}}
+2024-04-15 16:20:09,402 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:20:09,574 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:20:09,780 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:20:36,793 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:20:36,793 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:20:36,794 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:25:43,448 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:25:43,597 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:25:43,598 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:25:43,609 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:25:44,425 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:25:44,455 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 20 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:25:44,465 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:25:44,473 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:25:44,781 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:25:45,444 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:25:49,518 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:25:57,896 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:25:57,897 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:25:57,899 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:32:25,883 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:32:26,034 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:32:26,035 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:32:26,049 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:32:26,870 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:32:26,900 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 18 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:32:26,909 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:32:26,916 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:32:27,223 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:32:27,887 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:32:31,673 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:34:56,816 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:34:56,983 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:34:56,983 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:34:56,994 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:34:57,865 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:34:57,895 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 21 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:34:57,905 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:34:57,916 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 10 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:34:58,257 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:34:58,944 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:35:02,798 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:35:18,277 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:35:18,278 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:35:18,278 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:36:25,292 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:36:25,455 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:36:25,456 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:36:25,467 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:36:26,246 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:36:26,278 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 20 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:36:26,287 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:36:26,294 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 5 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:36:26,610 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:36:27,251 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:36:31,226 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:36:42,548 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:36:42,549 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:36:42,549 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:38:10,680 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:38:10,820 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:38:10,821 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:38:10,833 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:38:11,708 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:38:11,740 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 20 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:38:11,749 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:38:11,757 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:38:12,068 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:38:12,694 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:38:16,464 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:38:23,255 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:38:23,255 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:38:23,256 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:41:02,512 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:41:02,751 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:41:02,752 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:41:02,763 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:41:03,578 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:41:03,605 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 18 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:41:03,612 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:41:03,619 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:41:03,972 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:41:04,653 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:41:08,385 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:41:24,458 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:41:24,459 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:41:24,459 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:43:00,661 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:43:00,811 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:43:00,812 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:43:00,824 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:43:01,650 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:43:01,680 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 20 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:43:01,689 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:43:01,696 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:43:02,014 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:43:02,756 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:43:06,807 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:44:03,991 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:44:04,176 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:44:04,177 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:44:04,192 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:44:04,975 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:44:05,006 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 22 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:44:05,015 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:44:05,022 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 5 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:44:05,333 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:44:05,930 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:44:09,740 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:47:13,278 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:47:13,279 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:47:13,280 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:48:43,361 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:48:43,513 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:48:43,514 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:48:43,524 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:48:44,356 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:48:44,386 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 20 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:48:44,395 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:48:44,402 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:48:44,713 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:48:45,292 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:48:49,047 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:49:05,950 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:49:05,951 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:49:05,951 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:50:57,496 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:50:57,772 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:50:57,773 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:50:57,788 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:50:58,821 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:50:58,857 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 21 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:50:58,867 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:50:58,877 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 8 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:50:59,328 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:51:00,173 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:51:04,350 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:51:41,325 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:51:41,473 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:51:41,474 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:51:41,490 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:51:42,457 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:51:42,504 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 31 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:51:42,517 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:51:42,527 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 9 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:51:42,989 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:51:43,797 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:51:47,988 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:52:14,811 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 16:52:14,953 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 16:52:14,954 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 16:52:14,968 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 16:52:15,685 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:52:15,712 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 19 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 16:52:15,723 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 16:52:15,729 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 5 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 16:52:16,015 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 16:52:16,700 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 16:52:20,796 WARN o.a.c.l.i.Jdk14Logger [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-04-15 16:53:24,610 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:53:24,611 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:53:24,612 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:53:48,022 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:53:48,023 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:53:48,023 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 16:55:16,103 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 16:55:16,104 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 16:55:16,105 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:05:28,594 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 17:05:29,073 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 17:05:29,073 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 17:05:29,096 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 17:05:30,192 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:05:30,245 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 44 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 17:05:30,261 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:05:30,261 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 17:05:30,658 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 17:05:31,502 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 17:05:33,869 INFO o.a.c.l.i.Jdk14Logger [main] Netty started on port 9001
+2024-04-15 17:05:33,907 INFO o.a.c.l.i.Jdk14Logger [main] Started EntitySearchServiceApplication in 8.044 seconds (process running for 10.707)
+2024-04-15 17:05:45,273 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:05:45,281 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:05:45,313 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:05:46,654 INFO c.t.q.m.s.e.SearchServiceExceptionHandler [pool-4-thread-1] ---------------------ServiceException------------------------------
+2024-04-15 17:10:43,357 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 17:10:43,504 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 17:10:43,504 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 17:10:43,504 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 17:10:44,295 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:10:44,326 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 22 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 17:10:44,342 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:10:44,342 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 8 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 17:10:44,691 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 17:10:45,340 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 17:10:46,982 INFO o.a.c.l.i.Jdk14Logger [main] Netty started on port 9001
+2024-04-15 17:10:47,013 INFO o.a.c.l.i.Jdk14Logger [main] Started EntitySearchServiceApplication in 5.772 seconds (process running for 7.345)
+2024-04-15 17:11:36,098 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:11:36,098 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:11:36,130 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:11:37,391 INFO c.t.q.m.s.e.SearchServiceExceptionHandler [pool-4-thread-1] ---------------------ServiceException------------------------------
+2024-04-15 17:11:37,391 ERROR c.t.q.m.s.e.SearchServiceExceptionHandler [pool-4-thread-1] Service is currently down, please try again later.
+ServiceException: Elasticsearch connection error.
+	at EntitySearchServiceImpl.lambda$searchEntity$2(EntitySearchServiceImpl.java:55) ~[classes/:?]
+	Suppressed: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/192.168.80.41:9200]
+		at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:110) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:651) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+		at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Caused by: java.lang.RuntimeException: Timeout connecting to [/192.168.80.41:9200]
+		at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:649) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		... 35 more
+	Caused by: java.net.ConnectException: Timeout connecting to [/192.168.80.41:9200]
+		... 10 more
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler EntitySearchController#searchEnity(String, SearchRequest) [DispatcherHandler]
+Original Stack Trace:
+		at EntitySearchServiceImpl.lambda$searchEntity$2(EntitySearchServiceImpl.java:55) ~[classes/:?]
+		at reactor.core.publisher.Mono.lambda$onErrorMap$28(Mono.java:3850) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onError(MonoCollectList.java:108) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onError(FluxConcatMapNoPrefetch.java:221) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onError(FluxMapFuseable.java:142) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.drainAsync(FluxFlattenIterable.java:351) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.drain(FluxFlattenIterable.java:724) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.onError(FluxFlattenIterable.java:263) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4563) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+		at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/192.168.80.41:9200]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:110) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:651) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+	at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.lang.RuntimeException: Timeout connecting to [/192.168.80.41:9200]
+	at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:649) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) [?:?]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) [elasticsearch-java-8.10.4.jar:?]
+	at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) [elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) [elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) [httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.ConnectException: Timeout connecting to [/192.168.80.41:9200]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+2024-04-15 17:13:15,234 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:13:15,238 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:13:15,238 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:13:17,258 INFO c.t.q.m.s.e.SearchServiceExceptionHandler [pool-4-thread-1] ---------------------ServiceException------------------------------
+2024-04-15 17:13:17,258 ERROR c.t.q.m.s.e.SearchServiceExceptionHandler [pool-4-thread-1] Service is currently down, please try again later.
+ServiceException: Elasticsearch connection error.
+	at EntitySearchServiceImpl.lambda$searchEntity$2(EntitySearchServiceImpl.java:55) ~[classes/:?]
+	Suppressed: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/192.168.80.41:9200]
+		at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:110) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:651) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+		at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Caused by: java.lang.RuntimeException: Timeout connecting to [/192.168.80.41:9200]
+		at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:649) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		... 35 more
+	Caused by: java.net.ConnectException: Timeout connecting to [/192.168.80.41:9200]
+		... 10 more
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler EntitySearchController#searchEnity(String, SearchRequest) [DispatcherHandler]
+Original Stack Trace:
+		at EntitySearchServiceImpl.lambda$searchEntity$2(EntitySearchServiceImpl.java:55) ~[classes/:?]
+		at reactor.core.publisher.Mono.lambda$onErrorMap$28(Mono.java:3850) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onError(MonoCollectList.java:108) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onError(FluxConcatMapNoPrefetch.java:221) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onError(FluxMapFuseable.java:142) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.drainAsync(FluxFlattenIterable.java:351) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.drain(FluxFlattenIterable.java:724) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.onError(FluxFlattenIterable.java:263) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4563) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+		at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/192.168.80.41:9200]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:110) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:651) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+	at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.lang.RuntimeException: Timeout connecting to [/192.168.80.41:9200]
+	at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:649) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) [?:?]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) [elasticsearch-java-8.10.4.jar:?]
+	at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) [elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) [elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) [httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.ConnectException: Timeout connecting to [/192.168.80.41:9200]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+2024-04-15 17:14:29,935 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:14:29,935 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:14:29,935 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:14:30,947 INFO c.t.q.m.s.e.SearchServiceExceptionHandler [pool-4-thread-1] ---------------------ServiceException------------------------------
+2024-04-15 17:14:30,947 ERROR c.t.q.m.s.e.SearchServiceExceptionHandler [pool-4-thread-1] Service is currently down, please try again later.
+ServiceException: Elasticsearch connection error.
+	at EntitySearchServiceImpl.lambda$searchEntity$2(EntitySearchServiceImpl.java:55) ~[classes/:?]
+	Suppressed: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/192.168.80.41:9200]
+		at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:110) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:651) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+		at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Caused by: java.lang.RuntimeException: Timeout connecting to [/192.168.80.41:9200]
+		at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:649) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+		... 35 more
+	Caused by: java.net.ConnectException: Timeout connecting to [/192.168.80.41:9200]
+		... 10 more
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler EntitySearchController#searchEnity(String, SearchRequest) [DispatcherHandler]
+Original Stack Trace:
+		at EntitySearchServiceImpl.lambda$searchEntity$2(EntitySearchServiceImpl.java:55) ~[classes/:?]
+		at reactor.core.publisher.Mono.lambda$onErrorMap$28(Mono.java:3850) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onError(MonoCollectList.java:108) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onError(FluxConcatMapNoPrefetch.java:221) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onError(FluxMapFuseable.java:142) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.drainAsync(FluxFlattenIterable.java:351) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.drain(FluxFlattenIterable.java:724) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxFlattenIterable$FlattenIterableSubscriber.onError(FluxFlattenIterable.java:263) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4563) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+		at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+		at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+		at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+		at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+		at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/192.168.80.41:9200]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:110) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:651) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) ~[elasticsearch-java-8.10.4.jar:?]
+	at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) ~[elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.lang.RuntimeException: Timeout connecting to [/192.168.80.41:9200]
+	at org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate.translateException(ReactiveElasticsearchTemplate.java:649) ~[spring-data-elasticsearch-5.2.3.jar:5.2.3]
+	at reactor.core.publisher.Flux.lambda$onErrorMap$27(Flux.java:7263) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:118) ~[reactor-core-3.6.3.jar:3.6.3]
+	at reactor.core.publisher.MonoCompletionStage$MonoCompletionStageSubscription.apply(MonoCompletionStage.java:67) ~[reactor-core-3.6.3.jar:3.6.3]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[?:?]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.lambda$performRequestAsync$0(ElasticsearchTransportBase.java:198) ~[elasticsearch-java-8.10.4.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) [?:?]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient$1.onFailure(RestClientHttpClient.java:120) [elasticsearch-java-8.10.4.jar:?]
+	at org.elasticsearch.client.RestClient$FailureTrackingResponseListener.onDefinitiveFailure(RestClient.java:684) [elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.elasticsearch.client.RestClient$1.failed(RestClient.java:422) [elasticsearch-rest-client-8.10.4.jar:8.10.4]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.client.DefaultClientExchangeHandlerImpl.executionFailed(DefaultClientExchangeHandlerImpl.java:101) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.failed(AbstractClientExchangeHandler.java:432) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.connectionRequestFailed(AbstractClientExchangeHandler.java:352) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler.access$100(AbstractClientExchangeHandler.java:64) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.AbstractClientExchangeHandler$1.failed(AbstractClientExchangeHandler.java:396) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager$1.failed(PoolingNHttpClientConnectionManager.java:318) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.concurrent.BasicFuture.failed(BasicFuture.java:137) [httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) [httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) [httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) [httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.ConnectException: Timeout connecting to [/192.168.80.41:9200]
+	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+2024-04-15 17:15:03,553 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:15:03,554 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:15:03,554 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:15:34,318 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:15:34,318 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:15:34,319 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:37:00,833 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 17:37:01,007 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 17:37:01,007 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 17:37:01,017 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 17:37:01,946 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:37:01,976 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 18 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 17:37:01,985 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:37:01,992 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 17:37:02,315 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 17:37:02,933 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 17:37:04,829 INFO o.a.c.l.i.Jdk14Logger [main] Netty started on port 9001
+2024-04-15 17:37:04,859 INFO o.a.c.l.i.Jdk14Logger [main] Started EntitySearchServiceApplication in 6.742 seconds (process running for 8.472)
+2024-04-15 17:37:11,537 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:37:11,538 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:37:11,567 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:38:44,830 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 17:38:45,035 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 17:38:45,036 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 17:38:45,048 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 17:38:45,915 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:38:45,943 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 20 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 17:38:45,952 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:38:45,959 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 17:38:46,284 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 17:38:46,923 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 17:38:48,687 INFO o.a.c.l.i.Jdk14Logger [main] Netty started on port 9001
+2024-04-15 17:38:48,717 INFO o.a.c.l.i.Jdk14Logger [main] Started EntitySearchServiceApplication in 6.184 seconds (process running for 7.882)
+2024-04-15 17:38:58,896 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:38:58,897 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:38:58,925 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:50:26,302 INFO o.a.c.l.i.Jdk14Logger [main] Fetching config from server at : http://localhost:8888
+2024-04-15 17:50:26,469 INFO o.a.c.l.i.Jdk14Logger [main] Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information. Will be trying the next url if available
+2024-04-15 17:50:26,469 WARN o.a.c.l.i.Jdk14Logger [main] Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/ENTITY-SEARCH-SERVICE/default": Connection refused: no further information
+2024-04-15 17:50:26,481 INFO o.a.c.l.i.Jdk14Logger [main] The following 1 profile is active: "dev"
+2024-04-15 17:50:27,343 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:50:27,377 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 24 ms. Found 0 Elasticsearch repository interfaces.
+2024-04-15 17:50:27,388 INFO o.a.c.l.i.Jdk14Logger [main] Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-15 17:50:27,395 INFO o.a.c.l.i.Jdk14Logger [main] Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-15 17:50:27,722 INFO o.a.c.l.i.Jdk14Logger [main] BeanFactory id=8d951d39-7f7c-3570-a1d0-4fb2c9717449
+2024-04-15 17:50:28,355 INFO c.t.q.m.s.c.EntitySearchConfiguration [main] esid ==elastic
+2024-04-15 17:50:30,211 INFO o.a.c.l.i.Jdk14Logger [main] Netty started on port 9001
+2024-04-15 17:50:30,239 INFO o.a.c.l.i.Jdk14Logger [main] Started EntitySearchServiceApplication in 6.459 seconds (process running for 8.26)
+2024-04-15 17:51:13,959 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:51:13,960 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:51:13,980 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:52:04,966 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:52:04,967 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:52:04,967 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 17:52:30,868 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 17:52:30,869 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 17:52:30,869 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:09:37,920 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:09:37,920 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:09:37,920 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:09:59,717 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:09:59,717 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:09:59,717 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:10:15,758 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:10:15,758 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:10:15,759 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:39:21,478 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:39:21,479 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:39:21,480 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:54:35,919 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:54:35,920 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:54:35,921 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:55:04,923 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:55:04,924 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:55:04,924 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:55:51,287 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:55:51,287 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:55:51,288 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:56:03,300 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:56:03,300 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:56:03,301 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:57:01,464 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:57:01,465 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:57:01,484 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:57:29,369 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:57:29,369 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:57:29,372 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:57:36,109 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:57:36,109 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:57:36,111 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
+2024-04-15 18:58:59,631 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] ---.........----Request received in EntitySearchController................
+2024-04-15 18:58:59,632 INFO c.t.q.m.s.c.EntitySearchController [reactor-http-nio-3] dev
+2024-04-15 18:58:59,633 INFO c.t.q.m.s.s.EntitySearchServiceImpl [reactor-http-nio-3] ----------------EntitySearchServiceImpl -------------------1
