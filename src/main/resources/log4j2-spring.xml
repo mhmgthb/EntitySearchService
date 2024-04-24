@@ -46,12 +46,10 @@
         <Logger name="com.takamol.qiwa.microservice.search" level="info" additivity="false">
             <AppenderRef ref="Console" />
         </Logger>
-        <Logger name="org.springframework.data.elasticsearch.core" level="trace" additivity="false">
+        <Logger name="org.springframework.data.elasticsearch" level="TRACE" additivity="false">
             <AppenderRef ref="Console" />
         </Logger>
-        <Logger name="org.apache.logging" level="info" additivity="false">
-            <AppenderRef ref="Console" />
-        </Logger>
+
 
         </springProfile>
         <springProfile name="prod">

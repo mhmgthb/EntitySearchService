@@ -36,8 +36,9 @@ public class EntitySearchConfiguration extends ReactiveElasticsearchConfiguratio
 
     @Override
     public ClientConfiguration clientConfiguration() {
+
         HttpHeaders httpHeaders = new HttpHeaders();
-        log.info("esid =={}",esUsername);
+        log.info("Configuration to initialize Reactive client for elasticsearch is started.");
         httpHeaders.add("Accept", "application/vnd.elasticsearch+json;compatible-with=7");
         httpHeaders.add("Content-Type", "application/vnd.elasticsearch+json;"
                 + "compatible-with=7");
@@ -69,7 +70,7 @@ public class EntitySearchConfiguration extends ReactiveElasticsearchConfiguratio
                             });
                             return clientBuilder;
                         })).build();
-
+        log.info("Reactive Elasticsearch Client Configurations are created.");
         return  clientConfiguration;
     }
 

@@ -25,10 +25,10 @@ public class EntitySearchDelegatorImpl implements SearchApiDelegate {
     public Mono<ResponseEntity<Response>> searchEnity(EntityName entityName,
                                                       SearchRequest searchRequest,
                                                       ServerWebExchange exchange) {
+        log.info("Request received in {} for {} search",this.getClass().getSimpleName(),entityName);
 
         return entitySearchService.searchEntity(entityName,searchRequest).map(response -> new ResponseEntity<>(response,HttpStatus.OK));
-        //return Mono.just(new  ResponseEntity<>(, HttpStatus.OK))
-        //return new ResponseEntity<>(entitySearchService.searchEntity(entityName,searchRequest), HttpStatus.OK);
+
     }
 
 }

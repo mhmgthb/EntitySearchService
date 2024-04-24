@@ -17,7 +17,7 @@ public class CommonUtility {
 
     public static SSLContext sslContext(String keystoreFile, String password)//{
             throws GeneralSecurityException, IOException {
-        //try {
+        log.info("initializing SSLContext is started.");
         KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
         try (InputStream in = new FileInputStream(keystoreFile)) {
             keystore.load(in, password.toCharArray());
@@ -36,6 +36,7 @@ public class CommonUtility {
                 trustManagerFactory.getTrustManagers(),
                 new SecureRandom());
 
+        log.info(" SSLContext is initialized.");
         return sslContext;
         /*}catch(SecurityException sex){
             log.error(sex.getMessage(),sex);

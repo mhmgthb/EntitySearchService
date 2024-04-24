@@ -29,11 +29,11 @@ public class EntitySearchServiceImpl implements  EntitySearchService {
     public Mono<Response> searchEntity(EntityName entityName, SearchRequest searchCriteria) throws ServiceException {
         log.info("----------------EntitySearchServiceImpl -------------------");
         try {
+            log.info("Validation started...........");
             validateRequest(entityName,searchCriteria);
+            log.info("Validation done...........");
             Mono<ReactiveSearchHits<JSONObject>> searchForHits = entitySearchRepository.searchForHits(entityName.toString(),searchCriteria);
             Response searchResponse = new Response();
-
-            //searchForHits.flatMap()
 
            return searchForHits.flatMap(consumer->{
                 searchResponse.setTotalRecords(consumer.getTotalHits());

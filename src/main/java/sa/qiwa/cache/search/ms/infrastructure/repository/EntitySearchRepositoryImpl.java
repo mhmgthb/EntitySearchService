@@ -61,6 +61,7 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
         queryBuilder.withRequestCache(true).withTrackTotalHits(true);
 
 
+
         //queryBuilder.withFields(searchCriteria.getFields().stream().map(field->field).collect(Collectors.toList()));
         //queryBuilder.withFields("Salary","EstablishmentNameAr","WorkLocationNameEn");
         log.info("--------------------------------------------------------------------");
@@ -74,8 +75,11 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
                     return q;
                 });*/
         if(searchCriteria.getFields() != null && searchCriteria.getFields().size()>0){
-            queryBuilder.withSourceFilter(new FetchSourceFilter(searchCriteria.getFields().toArray(new String[]{}),new String[]{"id"}));
+            queryBuilder.withSourceFilter(new FetchSourceFilter(searchCriteria.getFields().toArray(new String[]{}),new String[]{"meta._id"}));
+            //queryBuilder.withFields(searchCriteria.getFields());
+            //queryBuilder.withStoredFields(searchCriteria.getFields());
         }
+
          queryBuilder//NativeQuery.builder()
                 //.withQuery(q -> q.matchAll(m->m))
                 //.withQuery(q -> q.bool(b->b.must(m->m.match(mt->mt.field("WorkLocationNameEn").query("Salabekh")))))
