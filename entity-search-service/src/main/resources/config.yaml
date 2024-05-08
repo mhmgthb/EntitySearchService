@@ -1,0 +1,23 @@
+inputSpec: ../src/main/resources/api-spec-1.0.0.yaml
+generatorName: spring
+generatorType: SERVER
+outputDir: 'temp'
+additionalProperties:
+    modelPackage: 'sa.qiwa.cache.search.ms.domain'
+    apiPackage: 'sa.qiwa.cache.search.ms.presentation'
+    library: spring-boot
+    useTags: true
+    useGzipFeature: true
+    serializableModel: true
+    dateLibrary: java8
+    annotationLibrary: 'none'
+    documentationProvider: 'none'
+    interfaceOnly: false
+    performValidation: true
+    useBeanValidation: true
+    delegatePattern: true
+    requestMappingMode: 'api_interface'
+    useSpringController: false
+    implicitHeaders: true
+    hideGenerationTimestamp: true
+    reactive: true

@@ -1,0 +1,26 @@
+00:52:00.492 [background-preinit] INFO  [] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+00:52:00.544 [main] INFO  [] sa.qiwa.cache.search.ms.EntitySearchServiceApplication - Starting EntitySearchServiceApplication using Java 21.0.1 with PID 16084 (D:\web-services-projects\spring-boot-microservices\cache-search\entity-search-service\target\classes started by Mohsin Mahmood in D:\web-services-projects\spring-boot-microservices\cache-search)
+00:52:00.546 [main] INFO  [] sa.qiwa.cache.search.ms.EntitySearchServiceApplication - The following 1 profile is active: "prod"
+00:52:01.459 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+00:52:01.498 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 0 Elasticsearch repository interfaces.
+00:52:01.513 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+00:52:01.521 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+00:52:02.523 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.config.EntitySearchConfigurationImpl - Configuration to initialize Reactive client for elasticsearch is started.
+00:52:02.533 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.config.EntitySearchConfigurationImpl - Reactive Elasticsearch Client Configurations are created.
+00:52:02.725 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.util.CommonUtility - initializing SSLContext is started.
+00:52:02.797 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.util.CommonUtility -  SSLContext is initialized.
+00:52:04.142 [main] INFO  [] org.springframework.boot.web.embedded.netty.NettyWebServer - Netty started on port 9001
+00:52:04.153 [main] INFO  [] sa.qiwa.cache.search.ms.EntitySearchServiceApplication - Started EntitySearchServiceApplication in 4.264 seconds (process running for 5.395)
+00:53:03.208 [background-preinit] INFO  [] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+00:53:03.265 [main] INFO  [] sa.qiwa.cache.search.ms.EntitySearchServiceApplication - Starting EntitySearchServiceApplication using Java 21.0.1 with PID 12448 (D:\web-services-projects\spring-boot-microservices\cache-search\entity-search-service\target\classes started by Mohsin Mahmood in D:\web-services-projects\spring-boot-microservices\cache-search)
+00:53:03.267 [main] INFO  [] sa.qiwa.cache.search.ms.EntitySearchServiceApplication - The following 1 profile is active: "prod"
+00:53:04.263 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+00:53:04.291 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Elasticsearch repository interfaces.
+00:53:04.305 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+00:53:04.312 [main] INFO  [] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+00:53:05.200 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.config.EntitySearchConfigurationImpl - Configuration to initialize Reactive client for elasticsearch is started.
+00:53:05.208 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.config.EntitySearchConfigurationImpl - Reactive Elasticsearch Client Configurations are created.
+00:53:05.406 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.util.CommonUtility - initializing SSLContext is started.
+00:53:05.484 [main] INFO  [] sa.qiwa.cache.search.ms.foundation.util.CommonUtility -  SSLContext is initialized.
+00:53:06.726 [main] INFO  [] org.springframework.boot.web.embedded.netty.NettyWebServer - Netty started on port 9001
+00:53:06.736 [main] INFO  [] sa.qiwa.cache.search.ms.EntitySearchServiceApplication - Started EntitySearchServiceApplication in 4.137 seconds (process running for 5.271)
