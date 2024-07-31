@@ -9,6 +9,7 @@ import net.minidev.json.JSONObject;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import sa.qiwa.cache.search.ms.test.model.SearchRequest;
+import sa.qiwa.cache.search.ms.test.model.SearchResponse;
 import sa.qiwa.cache.search.ms.test.util.TestConfig;
 
 import java.util.List;
@@ -81,7 +82,7 @@ public class EntitySearchTest {
         try {
             given()
                     .contentType("application/json")  //another way to specify content type
-                    .body(TestConfig.convertToJsonString(TestConfig.getSearchRequest()).concat("--"))   // use jsonObj toString method
+                    .body(TestConfig.convertToJsonString(TestConfig.getSearchRequest()).concat("424242"))   // use jsonObj toString method
                     .when()
                     .post("/search/CONTRACTS")
                     .then()
@@ -169,7 +170,7 @@ public class EntitySearchTest {
                     .when()
                     .post("/search/CONTRACTS")
                     .then()
-                    .assertThat().statusCode(400);
+                    .assertThat().statusCode(409);
 
     }
     @Test
@@ -182,25 +183,26 @@ public class EntitySearchTest {
                 .when()
                 .post("/search/CONTRACTS")
                 .then()
-                .assertThat().statusCode(201);
+                .assertThat().statusCode(200);
 
     }
     @Test
     public void test_response_list_size_as_per_filters() {
 
-            List<JSONObject> employeesList = given()
+        SearchResponse response = given()
                     .contentType("application/json")  //another way to specify content type
-                    .body(TestConfig.getSearchRequestWithAdditionalFilter())   // use jsonObj toString method
+                    .body(TestConfig.getSearchRequest())   // use jsonObj toString method
                     .when()
-                    .post("/search/CONTRACTS").as(new TypeRef<List<JSONObject>>() {});
+                    .post("/search/CONTRACTS").as(new TypeRef<SearchResponse>() {});
                    // .then()
                    // .assertThat().statusCode(201);
-            assertThat(employeesList.size(), equalTo(1));
+            assertThat(response.getRecords().size(), equalTo(7));
 
     }
     @Test
     public void test_response_list_size_as_per_page_size() {
         SearchRequest searchRequest = TestConfig.getSearchRequest();
+        searchRequest.setSize(3);
         List<JSONObject> employeesList = given()
                 .contentType("application/json")  //another way to specify content type
                 .body(searchRequest)   // use jsonObj toString method

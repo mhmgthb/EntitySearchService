@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -84,7 +85,7 @@ public class Filter implements Serializable {
    * Get field
    * @return field
   */
-  @NotNull 
+  @NotNull
   public String getField() {
     return field;
   }

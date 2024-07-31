@@ -44,7 +44,7 @@ public class Filter implements Serializable {
     
     LTE("lte"),
     
-    BETWEEN("between"),
+   BETWEEN("between"),
     
     NOT_BETWEEN("not_between");
 

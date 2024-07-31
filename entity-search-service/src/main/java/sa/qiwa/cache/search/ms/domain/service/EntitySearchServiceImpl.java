@@ -1,7 +1,8 @@
 package sa.qiwa.cache.search.ms.domain.service;
 
 import sa.qiwa.cache.search.ms.domain.model.EntityName;
-import sa.qiwa.cache.search.ms.domain.model.Response;
+import sa.qiwa.cache.search.ms.domain.model.Filter;
+import sa.qiwa.cache.search.ms.domain.model.SearchResponse;
 import sa.qiwa.cache.search.ms.domain.model.SearchRequest;
 import sa.qiwa.cache.search.ms.foundation.common.CommonConstants;
 import sa.qiwa.cache.search.ms.foundation.enums.ErrorCodes;
@@ -11,7 +12,6 @@ import io.netty.handler.timeout.ReadTimeoutException;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 //import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.data.elasticsearch.UncategorizedElasticsearchException;
 import org.springframework.data.elasticsearch.core.ReactiveSearchHits;
@@ -29,14 +29,14 @@ public class EntitySearchServiceImpl implements  EntitySearchService {
         this.entitySearchRepository = entitySearchRepository;
     }
     @Override
-    public Mono<Response> searchEntity(EntityName entityName, SearchRequest searchCriteria) throws ServiceException {
+    public Mono<SearchResponse> searchEntity(EntityName entityName, SearchRequest searchCriteria) throws ServiceException {
 
         try {
             log.info("Validation started...........");
             validateRequest(entityName,searchCriteria);
             log.info("Validation done...........");
             Mono<ReactiveSearchHits<JSONObject>> searchForHits = entitySearchRepository.searchForHits(entityName.toString(),searchCriteria);
-            Response searchResponse = new Response();
+            SearchResponse searchResponse = new SearchResponse();
 
            return searchForHits
                    //.doFirst(()->log.info("Searching started for {}",entityName.toString()))
@@ -52,50 +52,6 @@ public class EntitySearchServiceImpl implements  EntitySearchService {
                 //return Mono.just(searchResponse);
 
             }).onErrorMap(this::mapException);
-                   //.doFinally(signalType -> log.info("Searching done for {}",entityName.toString()));
-            // return Mono.just(searchResponse);
-/*
-
-            searchForHits.map(searchHit->searchHit.getTotalHits()).subscribe(s-> log.info("Total Count: {}",s));
-
-            //searchForHits.log();
-            //searchForHits.log().subscribe(s->s.getTotalHits());
-
-           // log.info("Total Search Hits == {}",searchHits.subscribe(s-> s.longValue()));
-
-            Flux<SearchHit<JSONObject>> fluxSearchHits = entitySearchRepository.searchEntity(entityName,searchCriteria);
-           //long totalCount = 0;
-            fluxSearchHits.count().map(count->count.longValue()).subscribe(aLong -> log.info("Total Count: {}",aLong));
-
-
-            //log.info("totalCount = {}",totalCount.map(c->c.longValue()).);
-
-
-            Flux<JSONObject> fluxEntity = fluxSearchHits.map(searchHit -> searchHit.getContent())
-                    .onErrorMap(originalException -> {
-                        if (originalException instanceof ReadTimeoutException) {
-                           throw new ServiceException("....................Readtimeout Excetion occurred......................", ErrorCodes.UNKNOWN);
-                        }
-                        return originalException;
-                    });;
-
-            fluxEntity.count().map(count->count.longValue()).subscribe(aLong -> log.info("Total Count: {}",aLong));;
-            //log.info("cnt= {}",cnt.map(c->c.longValue()));
-
-            return fluxEntity.collectList().
-                    onErrorMap(originalException -> {
-                        if (originalException instanceof ReadTimeoutException) {
-                           // log.info("----------------<<<<<<<ReadTimeoutException>>>>>> -------------------");
-                            throw new ServiceException("Readtimeout Excetion occurred  ",originalException, ErrorCodes.UNKNOWN);
-                        } else if (originalException instanceof DataAccessResourceFailureException) {
-                            //log.info("----------------<<<<<<<DataAccessResourceFailureExceptionk>>>>>> -------------------");
-                            throw new ServiceException("Elasticsearch connection error.",originalException, ErrorCodes.UNKNOWN);
-                        }else if (originalException instanceof UncategorizedElasticsearchException) {
-                            //log.info("----------------<<<<<<<UncategorizedElasticsearchException>>>>>> -------------------");
-                            throw new ServiceException("Elastic search throws inknown search exception,",originalException, ErrorCodes.BUSINESS_VALIDATION);
-                        }
-                        return originalException;
-                    });*///.log();//.subscribe(employeesList::add);
 
         }/*catch(UncategorizedElasticsearchException uee) {
 
@@ -121,9 +77,17 @@ public class EntitySearchServiceImpl implements  EntitySearchService {
         }
         return originalException;
     }
-    private void validateRequest(EntityName entityName, SearchRequest searchCriteria){
+    private void validateRequest(EntityName entityName, SearchRequest searchRequest){
         if(CommonConstants.entityNameIndexMap.get(entityName.getValue()) == null){
             throw new ServiceException(CommonConstants.ENTITY_NOT_IMPLEMNETED,ErrorCodes.NOT_IMPLMENTED);
         }
+        searchRequest.getFilters().forEach(filter -> {
+            if(filter.getOperator() == Filter.OperatorEnum.BETWEEN || filter.getOperator() == Filter.OperatorEnum.NOT_BETWEEN){
+                if(!filter.getField().contains(" ")){
+                    log.error("Upper and lower limits must be separated with spaces");
+                    throw new ServiceException(CommonConstants.BETWEEN_VALUE_INVALID,ErrorCodes.BAD_REQUEST);
+                }
+            }
+        });
     }
 }

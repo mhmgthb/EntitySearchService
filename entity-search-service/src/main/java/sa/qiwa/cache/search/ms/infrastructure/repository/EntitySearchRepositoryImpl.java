@@ -5,7 +5,10 @@ import co.elastic.clients.elasticsearch._types.SortOptions;*/
 import co.elastic.clients.elasticsearch._types.SortOptionsBuilders;
 import co.elastic.clients.elasticsearch._types.SortOrder;
 //import co.elastic.clients.elasticsearch._types.query_dsl.SpanWithinQuery;
+import co.elastic.clients.elasticsearch._types.aggregations.Aggregation;
+import co.elastic.clients.elasticsearch._types.aggregations.AggregationBuilders;
 import co.elastic.clients.json.JsonData;
+import org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchClient;
 import sa.qiwa.cache.search.ms.foundation.common.CommonConstants;
 import sa.qiwa.cache.search.ms.domain.model.SearchRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +35,7 @@ import reactor.core.publisher.Mono;
 public class EntitySearchRepositoryImpl implements EntitySearchRepository{
     //@Autowired
     ReactiveElasticsearchOperations operations;
+    private static final String KEYWORD = ".keyword";
 
     EntitySearchRepositoryImpl(ReactiveElasticsearchOperations operations){
         this.operations = operations;
@@ -39,12 +43,8 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
 
     @Override
     public Flux<SearchHit<JSONObject>> searchEntity(String entityName, SearchRequest searchCriteria) {
-
-
         IndexCoordinates index = IndexCoordinates.of(CommonConstants.entityNameIndexMap.get(entityName));
-
-
-        return operations.search(buildSearchQuery(searchCriteria), JSONObject.class, index);
+         return operations.search(buildSearchQuery(searchCriteria), JSONObject.class, index);
 
     }
 
@@ -52,7 +52,7 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
     public Mono<ReactiveSearchHits<JSONObject>> searchForHits(String entityName, SearchRequest searchCriteria) {
         IndexCoordinates index = IndexCoordinates.of(CommonConstants.entityNameIndexMap.get(entityName));
 
-        Query query = buildSearchQuery(searchCriteria);
+        Query query = this.buildSearchQuery(searchCriteria);
 
         return operations.searchForHits(query, JSONObject.class, index);
     }
@@ -63,7 +63,7 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
         queryBuilder.withPageable(Pageable.ofSize(searchCriteria.getSize())
                     .withPage(searchCriteria.getOffset()));
         queryBuilder.withRequestCache(true).withTrackTotalHits(true);
-
+        //queryBuilder.withAggregation()
 
 
         //queryBuilder.withFields(searchCriteria.getFields().stream().map(field->field).collect(Collectors.toList()));
@@ -78,7 +78,7 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
                     q.match(m->m.field("WorkLocationNameEn").query("Salabekh"));
                     return q;
                 });*/
-        if(searchCriteria.getFields() != null && searchCriteria.getFields().size()>0){
+        if(searchCriteria.getFields() != null && !searchCriteria.getFields().isEmpty()){
             queryBuilder.withSourceFilter(new FetchSourceFilter(searchCriteria.getFields().toArray(new String[]{}),new String[]{"meta._id"}));
             //queryBuilder.withFields(searchCriteria.getFields());
             //queryBuilder.withStoredFields(searchCriteria.getFields());
@@ -94,40 +94,55 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
                         .bool(b -> {
                             searchCriteria.getFilters().stream().forEach(filter -> {
                                 switch (filter.getOperator()) {
-                                    case EQ:
-                                        //b.must(m -> m.term(t -> t.field("LaborerIdNo").value("1043215860")))
-                                        b.must(m -> m.term(t -> t
-                                                .field(filter.getField())
+                                    case EQ->
+                                            b.must(m -> m.term(t -> t
+                                                .field(filter.getField().concat(KEYWORD))
                                                 .value(filter.getValue())));
-                                        //.must(m -> m.range(rng -> rng.field("CreationDate").gt(JsonData.of(LocalDate.now().minusYears(1)))));
-                                        break;
-                                    case GT:
-                                        b.must(m -> m.range(rng -> rng
-                                                .field(filter.getField())
+                                    case NE->
+                                            b.mustNot(m -> m.term(t -> t
+                                            .field(filter.getField().concat(KEYWORD))
+                                            .value(filter.getValue())));
+                                    case GT->  b.must(m -> m.range(rng -> rng
+                                                .field(filter.getField().concat(KEYWORD))
                                                 .gt(JsonData.of(filter.getValue()))));
-                                        break;
-                                    case LT:
+                                    case LT->
                                         b.must(m -> m.range(rng -> rng
-                                                .field(filter.getField())
+                                                .field(filter.getField().concat(KEYWORD))
                                                 .lt(JsonData.of(filter.getValue()))));
-                                        break;
-                                    case GTE:
+
+                                    case GTE->
                                         b.must(m -> m.range(rng -> rng
-                                                .field(filter.getField())
+                                                .field(filter.getField().concat(KEYWORD))
                                                 .gte(JsonData.of(filter.getValue()))));
-                                        break;
-                                    case LTE:
+
+                                    case LTE->
                                         b.must(m -> m.range(rng -> rng
-                                                .field(filter.getField())
+                                                .field(filter.getField().concat(KEYWORD))
                                                 .lte(JsonData.of(filter.getValue()))));
-                                        break;
-                                    case ANY:
+
+                                    case ANY->
                                         b.should(m -> m.term(t -> t
                                                 //.field(filter.getField()).terms(trms->trms.value())
-                                                .field(filter.getField())
+                                                .field(filter.getField().concat(KEYWORD))
                                                 .value(filter.getValue())));
+                                    case BETWEEN-> {
 
-                                        break;
+                                        b.must(m -> m.range(rng -> rng
+                                                .field(filter.getField().split(" ")[0].concat(KEYWORD))
+                                                .gte(JsonData.of(filter.getValue()))));
+                                        b.must(m -> m.range(rng -> rng
+                                                .field(filter.getField().split(" ")[1].concat(KEYWORD))
+                                                .lte(JsonData.of(filter.getValue()))));
+                                    }
+                                    case NOT_BETWEEN-> {
+
+                                        b.must(m -> m.range(rng -> rng
+                                                .field(filter.getField().split(" ")[0].concat(KEYWORD))
+                                                .lte(JsonData.of(filter.getValue()))));
+                                        b.must(m -> m.range(rng -> rng
+                                                .field(filter.getField().split(" ")[1].concat(KEYWORD))
+                                                .gte(JsonData.of(filter.getValue()))));
+                                    }
                                 }
 
                             });
@@ -194,4 +209,5 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
 
         //return operations.search(query, JSONObject.class, index);
     }
+
 }
