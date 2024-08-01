@@ -3,7 +3,7 @@ package sa.qiwa.cache.search.ms.application.delegator;
 import sa.qiwa.cache.search.ms.application.controller.ApiUtil;
 import sa.qiwa.cache.search.ms.application.controller.SearchApiController;
 import sa.qiwa.cache.search.ms.domain.model.EntityName;
-import sa.qiwa.cache.search.ms.domain.model.Response;
+import sa.qiwa.cache.search.ms.domain.model.SearchResponse;
 import sa.qiwa.cache.search.ms.domain.model.SearchRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -43,9 +43,9 @@ public interface SearchApiDelegate {
      *         or Service unavailable (Under maintenance or overloaded) (status code 503)
      * @see SearchApi#searchEnity
      */
-    default Mono<ResponseEntity<Response>> searchEnity(EntityName entityName,
-        SearchRequest searchRequest,
-        ServerWebExchange exchange) {
+    default Mono<ResponseEntity<SearchResponse>> searchEnity(EntityName entityName,
+                                                             SearchRequest searchRequest,
+                                                             ServerWebExchange exchange) {
         Mono<Void> result = Mono.empty();
         exchange.getResponse().setStatusCode(HttpStatus.NOT_IMPLEMENTED);
         for (MediaType mediaType : exchange.getRequest().getHeaders().getAccept()) {

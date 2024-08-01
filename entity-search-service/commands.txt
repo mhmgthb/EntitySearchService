@@ -1,0 +1,2 @@
+java -jar -DapiDocs=true -Dverbose=true openapi-generator-cli-6.0.1.jar generate -c ../src/main/resources/config.yaml
+keytool -importcert -file E:\Takamol\ElasticSerarchCacheService\es01-chain.pem -keystore keystore.jks -alias "elasticsearch"

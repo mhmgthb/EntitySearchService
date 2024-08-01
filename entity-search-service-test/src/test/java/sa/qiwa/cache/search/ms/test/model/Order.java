@@ -2,6 +2,7 @@ package sa.qiwa.cache.search.ms.test.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Generated;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -30,7 +31,7 @@ public class Order implements Serializable {
    * Get field
    * @return field
   */
-  @NotNull 
+  @NotNull
   public String getField() {
     return field;
   }

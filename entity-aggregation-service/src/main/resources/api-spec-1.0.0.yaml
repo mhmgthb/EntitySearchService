@@ -1,0 +1,204 @@
+openapi: 3.0.0
+info:
+  title: Entity Search Service
+  description: This is an abstraction for entity search service exposed on Elastic
+    Search platform
+  version: 1.0.0
+
+tags:
+  - name: search
+    description: This is entity search service
+  - name: aggregate
+    description: This is to retrieve aggregate query results
+paths:
+  /aggregate/{entityName}:
+    post:
+      tags:
+        - aggregate
+      summary: Aggregation of searched results
+      description: This service will aggregate searched results
+      operationId: aggregate
+      parameters:
+        - name: entityName
+          in: path
+          required: true
+          schema:
+            "$ref": "#/components/schemas/EntityName"
+      requestBody:
+        description: Will contain required aggregation operators and corresponding fields
+        content: { application/json: {
+          schema: {
+            $ref: '#/components/schemas/AggregateRequest'
+          }
+        }
+        }
+        required: true
+      responses:
+        "200":
+          description: Success
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/AggregateResponse'
+            }
+          }
+          }
+        "400":
+          description: Bad request
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "404":
+          description: Entity not found
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "409":
+          description: Validation error
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "500":
+          description: Internal server error
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "501":
+          description: The request method is not supported (Not Implemented)
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "502":
+          description: Service unavailable due to invalid backend response(Bad Gateway)
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+        "503":
+          description: Service unavailable (Under maintenance or overloaded)
+          content: { application/json: {
+            schema: {
+              "$ref": '#/components/schemas/Error'
+            }
+          }
+          }
+
+    x-codegen-request-body-name: searchCriteria
+components:
+  schemas:
+    EntityName:
+      enum:
+        - Contracts
+        - Employees
+        - Profiles
+        - Companies
+        - Establishments
+        - Laborers
+        - Trainings
+        - certificates
+        - Qualifications
+        - Notifications
+        - Occupations
+      type: string
+    AggregateRequest:
+          properties:
+            searchRequest:
+              type: object
+              $ref: "#/definitions/SearchRequest"
+            aggregation:
+              type: string
+              enum:
+                - count
+                - avg
+                - min
+                - max
+            aggregationField:
+              type: string
+          required:
+            - aggregation
+            - aggregationField
+    SearchRequest:
+      required:
+        - filters
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+    Filter:
+      required:
+        - field
+        - operator
+        - value
+      type: object
+      properties:
+        field:
+          type: string
+          nullable: false
+        operator:
+          type: string
+          enum:
+            - eq
+            - ne
+            - any
+            - gt
+            - gte
+            - lt
+            - lte
+            - between
+            - not_between
+        value:
+          type: string
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    AggregateResponse:
+      required:
+        - docCount
+        - aggregations
+      properties:
+        docCount:
+          type: number
+        aggregations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aggregation'
+    Aggregation:
+        required:
+          - metric
+          - metricValue
+        type: object
+        properties:
+          metric:
+            type: string
+            nullable: false
+          metricValue:
+            type: number
+            format: double
+
+
+

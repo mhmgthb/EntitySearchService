@@ -18,7 +18,25 @@ public enum EntityName {
   
   DOCUMENTS("Documents"),
   
-  EMPLOYEES("Employees");
+  EMPLOYEES("Employees"),
+
+  ESTABLISHMENTS("Establishments"),
+
+  PROFILES("Profiles"),
+
+  COMPANIES("Companies"),
+
+  LABORERS("Laborers"),
+
+  TRAININGS("Trainings"),
+
+  CERTIFICATES("Certificates"),
+
+  QUALIFICATIONS("Qualifications"),
+
+  NOTIFICATIONS("Notifications"),
+
+  OCCUPATIONS("Occupations");
 
   private String value;
 

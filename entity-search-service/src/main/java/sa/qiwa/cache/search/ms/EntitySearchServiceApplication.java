@@ -12,7 +12,7 @@ public class EntitySearchServiceApplication {
 	public static void main(String[] args) {
 		for(String arg:args) {
 			//log.info("Command Line Argument"+arg);
-			System.out.println("Command Line Argument"+arg);
+			//System.out.println("Command Line Argument"+arg);
 		}
 		SpringApplication.run(EntitySearchServiceApplication.class, args);
 	}

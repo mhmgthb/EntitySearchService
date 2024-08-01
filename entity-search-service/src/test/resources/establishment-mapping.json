@@ -1,0 +1,396 @@
+{
+"dynamic": "true",
+"dynamic_templates": [
+{
+"strings_as_keyword": {
+"match_mapping_type": "string",
+"mapping": {
+"ignore_above": 1024,
+"type": "keyword"
+}
+}
+}
+],
+"date_detection": true,
+"numeric_detection": true,
+"properties": {
+"@timestamp": {
+"type": "date"
+},
+"AdditionalNo": {
+"type": "long"
+},
+"BuildingNO": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+}
+},
+"CRExpiryDateGregorian": {
+"type": "date"
+},
+"CRExpiryDateHijri": {
+"type": "long"
+},
+"CRIssueDateGregorian": {
+"type": "date"
+},
+"CRNumber": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+}
+},
+"CRStatus": {
+"type": "long"
+},
+"CityAr": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"CityEn": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"CityID": {
+"type": "long"
+},
+"ContactEmail": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"ContactFirstName": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"ContactLastName": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"ContactMobileNumber": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"CreationDate": {
+"type": "date"
+},
+"District": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"EconomicActivity": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"EconomicActivityId": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"EstablishmentId": {
+"type": "long"
+},
+"EstablishmentManagersList": {
+"type": "text"
+},
+"EstablishmentName": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"EstablishmentTypeAr": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"EstablishmentTypeEn": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"EstablishmentTypeId": {
+"type": "long"
+},
+"EstablishmentTypeMCIAr": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"EstablishmentTypeMCIEn": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"EstablishmentTypeMCIID": {
+"type": "long"
+},
+"FK_Isic4activityID": {
+"type": "long"
+},
+"FK_UnifiedNumberID": {
+"type": "long"
+},
+"IsMain": {
+"type": "long"
+},
+"Isic4ActivityAr": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"Isic4ActivityId": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"LaborOfficeId": {
+"type": "long"
+},
+"Latitude": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"LicenseList": {
+"type": "text"
+},
+"LocationsList": {
+"type": "text"
+},
+"Longitude": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"MLSDUserTypeId": {
+"type": "long"
+},
+"NationalUnifiedNumber": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"NationalityAr": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"NationalityEn": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+}
+},
+"NationalityId": {
+"type": "long"
+},
+"OwnersList": {
+"type": "text"
+},
+"SequenceNumber": {
+"type": "long"
+},
+"SevenHundredNumber": {
+"type": "long"
+},
+"StatusAr": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"StatusEn": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"StatusId": {
+"type": "long"
+},
+"StreetName": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 1024
+}
+},
+"analyzer": "arabic"
+},
+"UNLaborOfficeId": {
+"type": "long"
+},
+"UNSequenceNumber": {
+"type": "long"
+},
+"UnifiedNumberId": {
+"type": "long"
+},
+"UnifiedNumberManager": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"UnifiedNumberManagerId": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"ZipCode": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"description": {
+"type": "keyword",
+"ignore_above": 1024
+},
+"id": {
+"type": "keyword",
+"ignore_above": 1024
+},
+"location": {
+"type": "geo_point"
+},
+"tags": {
+"type": "text",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+},
+"title": {
+"type": "keyword",
+"ignore_above": 1024
+}
+}
+}

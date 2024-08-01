@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+   <!-- <Properties>
+        <property name="LOG_FILE">${bundle:application:log.file.path}</property>
+    </Properties>-->
+
+    <Appenders>
+        <springProfile name="dev">
+            <Console name="Console" target="SYSTEM_OUT">
+                <!--<PatternLayout
+                        pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
+            -->
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level [%X{MDC_KEY}] %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            </Console>
+        </springProfile>
+        <springProfile name="prod">
+
+        <RollingFile name="RollingFile"
+                     fileName="${spring:log.file.path}/${spring:spring.application.name}.log"
+                     filePattern="./logs/$${date:yyyy-MM}/entity-service-%d{-dd-MMMM-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <!--<pattern>%d %p %C{1.} [%t] %m%n</pattern>-->
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level [%X{MDC_KEY}] %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- rollover on startup, daily and when the file reaches
+                    10 MegaBytes -->
+               <!-- <OnStartupTriggeringPolicy />-->
+                <SizeBasedTriggeringPolicy    size="10 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+    </springProfile>
+    </Appenders>
+
+    <Loggers>
+        <springProfile name="dev">
+        <!-- LOG everything at INFO level -->
+        <Root level="info">
+            <AppenderRef ref="Console" />
+           <!-- <AppenderRef ref="RollingFile" />-->
+        </Root>
+
+        <!-- LOG  at TRACE level -->
+       <!-- <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>-->
+        <Logger name="tracer" level="TRACE" additivity="false">
+           <AppenderRef ref="Console" />
+       </Logger>
+        <Logger name="com.takamol.qiwa.microservice.search" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        </springProfile>
+        <springProfile name="prod">
+            <AsyncRoot level="info" includeLocation="true">
+                <AppenderRef ref="RollingFile" />
+            </AsyncRoot>
+            <AsyncLogger name="com.takamol.qiwa.microservice.search" level="info" additivity="false" includeLocation="true">
+                <AppenderRef ref="RollingFile" />
+            </AsyncLogger>
+        </springProfile>
+
+    </Loggers>
+
+</Configuration>

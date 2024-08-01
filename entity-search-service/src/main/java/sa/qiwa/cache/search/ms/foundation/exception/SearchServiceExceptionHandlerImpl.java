@@ -42,6 +42,7 @@ public class SearchServiceExceptionHandlerImpl  {
             log.error(ex.getMessage(),ex);
             return generateResponse(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        log.error(ex.getMessage(),ex);
         return generateResponse(CommonConstants.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
         //return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(generateResponse(ex.getMessage(),HttpStatus.METHOD_NOT_ALLOWED));
         //log.error(ex.getMessage(),ex);

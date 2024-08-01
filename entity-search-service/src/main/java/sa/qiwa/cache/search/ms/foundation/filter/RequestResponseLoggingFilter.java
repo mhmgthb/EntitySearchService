@@ -1,6 +1,8 @@
 package sa.qiwa.cache.search.ms.foundation.filter;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.StringDecoder;
 import org.slf4j.MDC;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -20,8 +22,10 @@ import sa.qiwa.cache.search.ms.foundation.common.CommonConstants;
 import sa.qiwa.cache.search.ms.foundation.util.LoggingUtil;
 
 import java.nio.CharBuffer;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Component
@@ -51,11 +55,15 @@ public class RequestResponseLoggingFilter implements WebFilter {
             );
         }*/
         return chain
-                .filter(exchange)
+                .filter(new PartnerServerWebExchangeDecorator(exchange))
                 .doFirst(()->{
                     try (MDC.MDCCloseable cMdc = MDC.putCloseable(CommonConstants.MDC_KEY, requestId)) {
                         //logStatement.accept(signal.get());
                         log.info("{} {}", request.getMethod(), request.getURI());
+
+                        //PartnerServerWebExchangeDecorator cachingServerHttpRequestDecorator = new PartnerServerWebExchangeDecorator(exchange);
+                        //log.info("{} {}", cachingServerHttpRequestDecorator.getCachedBody());
+/*
                         request.getBody().map(
                                 dataBuffer -> {
                                     log.info("Reading request body..............");
@@ -65,7 +73,7 @@ public class RequestResponseLoggingFilter implements WebFilter {
                                     log.info("Request Payload: {}",String.valueOf(bytes));
                                     return bytes;
                                 }
-                        );//.collect(
+                        );*///.collect(
                             //    bytes->log.info("Request Payload: {}",String.valueOf(bytes)));
                     }
                    // log.info("{} {}", request.getMethod(), request.getURI());

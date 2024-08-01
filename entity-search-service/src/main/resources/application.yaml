@@ -12,8 +12,7 @@ spring:
 spring:
   config:
     activate:
-      on-profile: dev
-    import: optional:configserver:http://localhost:8088
+      on-profile: demo
     logging:
       level:
         org:
@@ -21,36 +20,47 @@ spring:
             data:
               elasticsearch:
                 core: DEBUG
-name: dev-yaml
-environment: development
+name: demo-yaml
+environment: demo
 enabled: false
-api:
-  elastic-search:
-    baseUrl:  ${baseUrl:192.168.80.41:9200}
-elasticsearch:
-  username: ${esid:elastic}
-  pwd: ${espwd:-r_05kc5qqWqNHZcDWlj}
-keystore:
-  file:
-    path: ${user.home}/keystore.jks
-  pwd: ${jkspwd:Lenovo@246}
+elastic-search:
+    baseUrl:  ${ELASTIC_BASE_URL:192.168.80.41:9200}
+    username: ${ELASTIC_USER_ID:elastic}
+    pwd: ${ELASTIC_PASSWORD:-r_05kc5qqWqNHZcDWlj}
+    keystore:
+      file:
+        path: ${KEYSTORE_PATH:${user.home}/keystore.jks}
+      pwd: ${JKS_PASSWORD:elasticsearch}
 
 ---
 spring:
   config:
     activate:
-      on-profile: prod
-    import: optional:configserver:http://localhost:8088
-name: prod-yaml
-environment: production
+      on-profile: stage
+name: stage-yaml
+environment: stage
 enabled: false
-api:
-  elastic-search:
-    baseUrl:  ${baseUrl:192.168.80.41:9200}
-elasticsearch:
-  username: ${esid:elastic}
-  pwd: ${espwd:-r_05kc5qqWqNHZcDWlj}
-keystore:
-  file:
-    path: ${user.home}/keystore.jks
-  pwd: ${jkspwd:Lenovo@246}
+elastic-search:
+  baseUrl:  ${ELASTIC_BASE_URL:192.168.80.41:9200}
+  username: ${ELASTIC_USER_ID:elastic}
+  pwd: ${ELASTIC_PASSWORD:-r_05kc5qqWqNHZcDWlj}
+  keystore:
+    file:
+      path: ${KEYSTORE_PATH:${user.home}/keystore.jks}
+    pwd: ${JKS_PASSWORD:elasticsearch}
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+name: test-yaml
+environment: test
+enabled: false
+elastic-search:
+  baseUrl:  ${ELASTIC_BASE_URL:localhost:9200}
+  username: ${ELASTIC_USER_ID:elastic}
+  pwd: ${ELASTIC_PASSWORD:elastic}
+  keystore:
+    file:
+      path: ${KEYSTORE_PATH:${user.home}/keystore.jks}
+    pwd: ${JKS_PASSWORD:elasticsearch}

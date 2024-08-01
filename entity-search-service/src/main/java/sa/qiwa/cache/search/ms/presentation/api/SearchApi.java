@@ -16,7 +16,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 import sa.qiwa.cache.search.ms.application.delegator.SearchApiDelegate;
 import sa.qiwa.cache.search.ms.domain.model.EntityName;
-import sa.qiwa.cache.search.ms.domain.model.Response;
+import sa.qiwa.cache.search.ms.domain.model.SearchResponse;
 import sa.qiwa.cache.search.ms.domain.model.SearchRequest;
 
 import jakarta.annotation.Generated;
@@ -50,7 +50,7 @@ public interface SearchApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default Mono<ResponseEntity<Response>> searchEnity(
+    default Mono<ResponseEntity<SearchResponse>> searchEnity(
          @PathVariable("entityName") EntityName entityName,
          @Valid @RequestBody SearchRequest searchRequest,
          final ServerWebExchange exchange

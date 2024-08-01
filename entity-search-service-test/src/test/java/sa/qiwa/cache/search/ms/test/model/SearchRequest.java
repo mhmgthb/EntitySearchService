@@ -3,6 +3,9 @@ package sa.qiwa.cache.search.ms.test.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -76,7 +79,8 @@ public class SearchRequest implements Serializable {
    * Get filters
    * @return filters
   */
-  @NotNull @Valid 
+  @NotNull
+  @Valid
   public List<Filter> getFilters() {
     return filters;
   }
@@ -119,7 +123,7 @@ public class SearchRequest implements Serializable {
    * maximum: 50
    * @return size
   */
-  @NotNull @Min(1) @Max(50) 
+  @NotNull @Min(1) @Max(50)
   public Integer getSize() {
     return size;
   }

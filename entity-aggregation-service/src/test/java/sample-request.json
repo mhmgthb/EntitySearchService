@@ -1,0 +1,26 @@
+{
+    "searchRequest": {
+    "filters": [
+        {
+        "field": "LaborerIdNo",
+        "operator": "eq",
+        "value": "1043215860"
+        }
+    ],
+    "orders": [
+        {
+        "field": "CreationDate",
+        "asc": true
+        }
+    ],
+    "fields":[
+        "Salary","EstablishmentNameAr"
+    ],
+    "size": 2,
+    "offset": 0
+    },
+
+    "aggregation": "count",
+    "aggregationField": "SequenceNumber"
+
+}

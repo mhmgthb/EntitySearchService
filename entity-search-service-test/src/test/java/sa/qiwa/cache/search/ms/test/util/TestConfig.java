@@ -35,6 +35,8 @@ public class TestConfig {
         order.setField("CreationDate");
         order.setAsc(true);
 
+        searchRequest.getOrders().add(order);
+
         searchRequest.setSize(20);
         searchRequest.setOffset(0);
 

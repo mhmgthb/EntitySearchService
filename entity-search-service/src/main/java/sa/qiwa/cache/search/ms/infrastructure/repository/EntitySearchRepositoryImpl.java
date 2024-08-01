@@ -44,7 +44,7 @@ public class EntitySearchRepositoryImpl implements EntitySearchRepository{
     @Override
     public Flux<SearchHit<JSONObject>> searchEntity(String entityName, SearchRequest searchCriteria) {
         IndexCoordinates index = IndexCoordinates.of(CommonConstants.entityNameIndexMap.get(entityName));
-         return operations.search(buildSearchQuery(searchCriteria), JSONObject.class, index);
+         return operations.search(buildSearchQuery(searchCriteria), JSONObject.class);
 
     }
 

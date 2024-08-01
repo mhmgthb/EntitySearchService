@@ -25,15 +25,15 @@ import java.time.format.DateTimeFormatter;
 @EnableAspectJAutoProxy
 public class EntitySearchConfigurationImpl extends ReactiveElasticsearchConfiguration {
 
-    @Value("${api.elastic-search.baseurl}")
+    @Value("${elastic-search.baseurl}")
     private String serverUrl;
-    @Value("${elasticsearch.username}")
+    @Value("${elastic-search.username}")
     private String esUsername;
-    @Value("${elasticsearch.pwd}")
+    @Value("${elastic-search.pwd}")
     private String esPwd;
-    @Value("${keystore.file.path}")
+    @Value("${elastic-search.keystore.file.path}")
     private String keystoreFilePath;;
-    @Value("${keystore.pwd}")
+    @Value("${elastic-search.keystore.pwd}")
     private String keystorePwd;
 
     @Override

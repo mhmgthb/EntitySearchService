@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+
+  entity-search-service:
+    image: ${IMAGE_NAME}
+    restart: unless-stopped
+    env_file:
+      - env-file.env #should be like that, the file changes in pipeline depending the stage
+    environment:
+      - DATASOURCE_USERNAME=${DATASOURCE_USERNAME}
+      - DATASOURCE_PASSWORD=${DATASOURCE_PASSWORD}
+    command: ["java","-jar","app.jar"]
+    expose:
+      - 8080
+    labels:
+      com.qiwa.runtime.product-name: "qiwa"
+      com.qiwa.runtime.service-name: "entity-search-service"
+      com.qiwa.runtime.service-vendor: "royalcyber"
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
